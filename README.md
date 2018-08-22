@@ -3,16 +3,9 @@
 - [Docker](https://www.docker.com/get-started)
 
 # Clone
+To clone via HTTPS when you have 2FA enabled, [generate a new token first](https://github.com/settings/tokens).
 
-Use either **SSH** or **HTTP** method, whichever works easiest for you.
-
-SSH:
-
-```
-git clone --recursive git@github.com:nbcsteveb/nbc-wp-docker.git
-```
-
-HTTP:
+Once the token is generated, you can login using your github username and the token.
 
 ```
 git clone --recursive https://github.com/nbcsteveb/nbc-wp-docker.git
