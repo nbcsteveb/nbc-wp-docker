@@ -1,3 +1,3 @@
 [submodule "wordpress/nbc-wp-content"]
 	path = wordpress/nbc-wp-content
-	url = git@github.com-nbcsteveb:wpcomvip/nbclocal-test.git
+	url = https://github.com/wpcomvip/nbclocal-test.git
