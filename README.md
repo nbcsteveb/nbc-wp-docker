@@ -36,3 +36,25 @@ make build
 make up
 ```
 
+# Changing branches
+
+```
+cd wordpress/nbc-wp-content
+git checkout ots-theme
+```
+
+NOTE: after doing this, you'll see something like this:
+
+```
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+  (commit or discard the untracked or modified content in submodules)
+
+	modified:   wordpress/nbc-wp-content (new commits, modified content, untracked content)
+```
+
+Just ignore this unless you want to update the branch all users see by default.
