@@ -43,11 +43,14 @@ Click **Log In**.
 
 # Troubleshooting
 
-If you get a "database failed to connect" error, you have to wait for MariaDB to finish starting.
+- If you just spun up the server and are getting "NO RESPONSE" error or blank page, then wait a minute and try again, docker is still spinning up.
 
-You can check the status by doing `make ARGS=db logs`.
+- If you get a "database failed to connect" error, you have to wait for MariaDB to finish starting.
+  You can check the status by doing `make ARGS=db logs`.
 
-If you see `mysqld: ready for connections` then you can refresh and the page should work.
+  If you see `mysqld: ready for connections` then you can refresh and the page should work.
+
+  If you still have problems, do a `make down; make up` and try again.
 
 # Makefile Commands
 
