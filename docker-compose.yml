@@ -4,10 +4,16 @@ services:
     ports:
       - 8080:80
     image: nbc-wordpress
+    environment:
+        - DB_NAME=wordpress_default
+        - DB_USER=root
+        - DB_PASS=toor
+        - DB_HOST=nbc-wp-db
     build:
       context: ./wordpress
     volumes:
       - ./wordpress/nbc-wp-content:/var/www/html/wp-content
+      - ./wordpress/wp-config.php:/var/www/html/wp-config.php
     networks:
       nbc-wordpress-network:
         aliases:
