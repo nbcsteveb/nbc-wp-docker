@@ -4,6 +4,8 @@
 
 # Clone
 
+Use either **SSH** or **HTTP** method, whichever works easiest for you.
+
 SSH:
 
 ```
@@ -16,24 +18,10 @@ HTTP:
 git clone --recursive https://github.com/nbcsteveb/nbc-wp-docker.git
 ```
 
-# Makefile Commands
-
-```
-make build            # docker-compose build
-make down             # docker-compose down
-make logs             # docker-compose logs -f
-make ARGS='' logs     # docker-compose logs
-make ps               # docker-compose ps
-make ssh              # docker-compose exec wordpress /bin/bash
-make SERVICE=db ssh   # docker-compose exec <service> /bin/bash
-make up               # docker-compose up -d
-```
-
 # First Time Running
 
 ```
-make build
-make up
+make ARGS='--build -d' up
 ```
 
 After running, try to hit http://127.0.0.1:8080/
@@ -53,11 +41,25 @@ If all is well, you'll get a **SUCCESS** page.
 
 Click **Log In**.
 
-# Bringing the machine up or down
+# Troubleshooting
+
+If you get a "database failed to connect" error, you have to wait for MariaDB to finish starting.
+
+You can check the status by doing `make ARGS=db logs`.
+
+If you see `mysqld: ready for connections` then you can refresh and the page should work.
+
+# Makefile Commands
 
 ```
-make down
-make up
+make build            # docker-compose build
+make down             # docker-compose down
+make logs             # docker-compose logs -f
+make ARGS='' logs     # docker-compose logs
+make ps               # docker-compose ps
+make ssh              # docker-compose exec wordpress /bin/bash
+make SERVICE=db ssh   # docker-compose exec <service> /bin/bash
+make up               # docker-compose up -d
 ```
 
 # Building the machine
@@ -71,14 +73,6 @@ or
 ```
 make ARGS='--build -d' up
 ```
-
-# Troubleshooting
-
-If you get a "database failed to connect" error, you have to wait for MariaDB to finish starting.
-
-You can check the status by doing `make ARGS=db logs`.
-
-If you see `mysqld: ready for connections` then you can refresh and the page should work.
 
 
 # Changing branches
