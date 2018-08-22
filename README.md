@@ -36,6 +36,51 @@ make build
 make up
 ```
 
+After running, try to hit http://127.0.0.1:8080/
+
+You should be prompted by a wordpress setup.
+
+The first screen should be language selection, choose "English" (or your preferred language).
+
+The second screen will ask you to fill out:
+
+- Site Title (whatever you want)
+- Username (you will use this to login to wp-admin)
+- Passsword (you will use this to login to wp-admin)
+- Email (you can use test@test.local, or whatever e-mail you want, this doesn't matter)
+
+If all is well, you'll get a **SUCCESS** page.
+
+Click **Log In**.
+
+# Bringing the machine up or down
+
+```
+make down
+make up
+```
+
+# Building the machine
+
+```
+make build
+```
+
+or
+
+```
+make ARGS='--build -d' up
+```
+
+# Troubleshooting
+
+If you get a "database failed to connect" error, you have to wait for MariaDB to finish starting.
+
+You can check the status by doing `make ARGS=db logs`.
+
+If you see `mysqld: ready for connections` then you can refresh and the page should work.
+
+
 # Changing branches
 
 ```
