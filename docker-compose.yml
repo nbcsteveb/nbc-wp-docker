@@ -6,3 +6,25 @@ services:
     image: nbc-wordpress
     build:
       context: ./wordpress
+    volumes:
+      - ./wordpress/nbc-wp-content:/var/www/html/wp-content
+    networks:
+      nbc-wordpress-network:
+        aliases:
+          - nbc-wp-web
+
+  db:
+    restart: always
+    image: mariadb:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=toor
+      - MYSQL_DATABASE=wordpress_default
+    volumes:
+      - ./dbdata:/var/lib/mysql
+    networks:
+      nbc-wordpress-network:
+        aliases:
+          - nbc-wp-db
+
+networks:
+  nbc-wordpress-network:

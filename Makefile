@@ -1,3 +1,5 @@
+SERVICE?=wordpress
+
 .PHONY: build
 .PHONY: down
 .PHONY: flogs
@@ -15,7 +17,7 @@ down:
 	docker-compose down
 
 logs:
-	docker-compose logs ${ARGS}
+	docker-compose logs $(ARGS)
 
 flogs:
 	$(MAKE) ARGS=-f logs
@@ -24,4 +26,4 @@ ps:
 	docker-compose ps
 
 ssh:
-	docker-compose exec wordpress /bin/bash
+	docker-compose exec $(SERVICE) /bin/bash
