@@ -1,0 +1,8 @@
+version: '3'
+services:
+  wordpress:
+    ports:
+      - 8080:80
+    image: nbc-wordpress
+    build:
+      context: ./wordpress
