@@ -34,6 +34,7 @@ ssh:
 swbranch: BRANCH?=ots-theme
 swbranch:
 	pushd ./wordpress/nbc-wp-content && \
+		git stash save && \
 		git checkout $(BRANCH) && \
 	popd
 
