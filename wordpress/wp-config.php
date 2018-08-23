@@ -77,7 +77,7 @@ $table_prefix  = 'wp_';
  *
  * @link https://codex.wordpress.org/Debugging_in_WordPress
  */
-define('WP_DEBUG', true);
+define('WP_DEBUG', false);
 
 if ( file_exists( __DIR__ . '/wp-content/vip-config/vip-config.php' ) ) {
     require_once( __DIR__ . '/wp-content/vip-config/vip-config.php' );
