@@ -4,15 +4,11 @@
 .PHONY: logs
 .PHONY: ps
 .PHONY: ssh
-.PHONY: up
 .PHONY: swbranch
+.PHONY: up
 
 build:
 	docker-compose build
-
-up: ARGS?=-d
-up:
-	docker-compose up $(ARGS)
 
 down:
 	docker-compose down
@@ -33,3 +29,7 @@ swbranch:
 	pushd ./wordpress/nbc-wp-content && \
 		git checkout $(BRANCH) && \
 	popd
+
+up: ARGS?=-d
+up:
+	docker-compose up $(ARGS)
