@@ -22,6 +22,8 @@ services:
           - nbc-wp-web
 
   db:
+    ports:
+      - 33306:3306
     restart: always
     image: mariadb:latest
     environment:
