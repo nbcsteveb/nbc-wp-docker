@@ -1,5 +1,3 @@
-SERVICE?=wordpress
-
 .PHONY: build
 .PHONY: down
 .PHONY: flogs
@@ -7,6 +5,7 @@ SERVICE?=wordpress
 .PHONY: ps
 .PHONY: ssh
 .PHONY: up
+.PHONY: swbranch
 
 build:
 	docker-compose build
@@ -25,5 +24,12 @@ logs:
 ps:
 	docker-compose ps
 
+ssh: SERVICE?=wordpress
 ssh:
 	docker-compose exec $(SERVICE) /bin/bash
+
+swbranch: BRANCH?=ots-theme
+swbranch:
+	pushd ./wordpress/nbc-wp-content && \
+		git checkout $(BRANCH) && \
+	popd
