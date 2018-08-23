@@ -1,7 +1,11 @@
+HOST=127.0.0.1
+PORT=8080
+
 .PHONY: build
 .PHONY: down
 .PHONY: flogs
 .PHONY: logs
+.PHONY: open
 .PHONY: ps
 .PHONY: ssh
 .PHONY: swbranch
@@ -16,6 +20,9 @@ down:
 logs: ARGS?=-f
 logs:
 	docker-compose logs $(ARGS)
+
+open:
+	open http://$(HOST):$(PORT)/
 
 ps:
 	docker-compose ps
