@@ -13,7 +13,9 @@ services:
       context: ./wordpress
     volumes:
       - ./wordpress/nbc-wp-content:/var/www/html/wp-content
+      - ./wordpress/mu-plugins:/var/www/html/wp-content/mu-plugins
       - ./wordpress/wp-config.php:/var/www/html/wp-config.php
+      - ./wordpress/uploads:/var/www/html/wp-content/uploads
     networks:
       nbc-wordpress-network:
         aliases:
