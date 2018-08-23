@@ -79,6 +79,10 @@ $table_prefix  = 'wp_';
  */
 define('WP_DEBUG', true);
 
+if ( file_exists( __DIR__ . '/wp-content/vip-config/vip-config.php' ) ) {
+    require_once( __DIR__ . '/wp-content/vip-config/vip-config.php' );
+}
+
 /* That's all, stop editing! Happy blogging. */
 
 /** Absolute path to the WordPress directory. */
