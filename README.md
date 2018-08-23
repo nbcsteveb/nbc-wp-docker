@@ -48,14 +48,16 @@ Click **Log In**.
 # Makefile Commands
 
 ```
-make build            # docker-compose build
-make down             # docker-compose down
-make logs             # docker-compose logs -f
-make ARGS='' logs     # docker-compose logs
-make ps               # docker-compose ps
-make ssh              # docker-compose exec wordpress /bin/bash
-make SERVICE=db ssh   # docker-compose exec <service> /bin/bash
-make up               # docker-compose up -d
+make build                     # docker-compose build
+make down                      # docker-compose down
+make logs                      # docker-compose logs -f
+make ARGS='' logs              # docker-compose logs
+make ps                        # docker-compose ps
+make ssh                       # docker-compose exec wordpress /bin/bash
+make SERVICE=db ssh            # docker-compose exec db /bin/bash
+make up                        # docker-compose up -d
+make swbranch                  # pushd ./wordpress/nbc-wp-content && git checkout ots-theme && popd
+make BRANCH=master swbranch    # pushd ./wordpress/nbc-wp-content && git checkout master && popd
 ```
 
 # Building the machine
