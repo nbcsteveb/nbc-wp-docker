@@ -80,9 +80,10 @@ cd wordpress/nbc-wp-content
 git checkout ots-theme
 ```
 
-NOTE: after doing this, you'll see something like this:
+NOTE: after doing this, if you run `git status` you'll see something like this:
 
 ```
+$ git status
 On branch master
 Your branch is up to date with 'origin/master'.
 
