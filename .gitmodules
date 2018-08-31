@@ -1,5 +1,5 @@
-[submodule "wordpress/nbc-wp-content"]
-	path = wordpress/nbc-wp-content
+[submodule "wordpress/wp-content"]
+	path = wordpress/wp-content
 	url = https://github.com/wpcomvip/nbclocal-test.git
 [submodule "wordpress/mu-plugins"]
 	path = wordpress/mu-plugins
