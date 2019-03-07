@@ -3,7 +3,11 @@ services:
   nginx:
     image: nginx:mainline
     volumes:
-      - webroot:/var/www/html
+      - roothtml:/var/www/html:ro
+      - ./wordpress/wp-content:/var/www/html/wp-content:ro
+      - ./wordpress/mu-plugins:/var/www/html/wp-content/mu-plugins:ro
+      - ./wordpress/wp-config.php:/var/www/html/wp-config.php:ro
+      - ./wordpress/uploads:/var/www/html/wp-content/uploads:ro
       - ./nginx/nginx.template:/etc/nginx/conf.d/wordpress.template:ro
     ports:
       - 8080:80
@@ -30,7 +34,7 @@ services:
       - ./wordpress/mu-plugins:/var/www/html/wp-content/mu-plugins
       - ./wordpress/wp-config.php:/var/www/html/wp-config.php
       - ./wordpress/uploads:/var/www/html/wp-content/uploads
-      - webroot:/var/www/html
+      - roothtml:/var/www/html
     networks:
       nbc-wordpress-network:
         aliases:
@@ -55,4 +59,4 @@ networks:
   nbc-wordpress-network:
 
 volumes:
-  webroot:
+  roothtml:
