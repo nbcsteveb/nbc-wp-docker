@@ -3,11 +3,11 @@ services:
   nginx:
     image: nginx:mainline
     volumes:
-      - roothtml:/var/www/html:ro
-      - ./wordpress/wp-content:/var/www/html/wp-content:ro
-      - ./wordpress/mu-plugins:/var/www/html/wp-content/mu-plugins:ro
+      - roothtml:/var/www/html
+      - ./wordpress/wp-content:/var/www/html/wp-content
+      - ./wordpress/mu-plugins:/var/www/html/wp-content/mu-plugins
       - ./wordpress/wp-config.php:/var/www/html/wp-config.php:ro
-      - ./wordpress/uploads:/var/www/html/wp-content/uploads:ro
+      - ./wordpress/uploads:/var/www/html/wp-content/uploads
       - ./nginx/nginx.template:/etc/nginx/conf.d/wordpress.template:ro
     ports:
       - 8080:80
