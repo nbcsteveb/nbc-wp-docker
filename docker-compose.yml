@@ -1,8 +1,22 @@
 version: '3'
 services:
-  wordpress:
+  nginx:
+    image: nginx:mainline
+    volumes:
+      - webroot:/var/www/html
+      - ./nginx/nginx.template:/etc/nginx/conf.d/wordpress.template:ro
     ports:
       - 8080:80
+    command: /bin/bash -c "envsubst '$$NGINX_PORT' < /etc/nginx/conf.d/wordpress.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
+    environment:
+      NGINX_PORT: 80
+    restart: always
+    networks:
+      nbc-wordpress-network:
+          aliases:
+            - nbc-wp-nginx
+
+  wordpress-php:
     image: nbc-wordpress
     environment:
         - DB_NAME=wordpress_default
@@ -16,10 +30,11 @@ services:
       - ./wordpress/mu-plugins:/var/www/html/wp-content/mu-plugins
       - ./wordpress/wp-config.php:/var/www/html/wp-config.php
       - ./wordpress/uploads:/var/www/html/wp-content/uploads
+      - webroot:/var/www/html
     networks:
       nbc-wordpress-network:
         aliases:
-          - nbc-wp-web
+          - nbc-wp-php
 
   db:
     ports:
@@ -38,3 +53,6 @@ services:
 
 networks:
   nbc-wordpress-network:
+
+volumes:
+  webroot:
